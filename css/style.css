@@ -1,0 +1,75 @@
+/*-----------------
+    RESET 
+------------------*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f3f4f1;
+    color: #888782;
+}
+
+/*-----------------
+    COMMON 
+------------------*/
+.container {
+    max-width: 62.5rem;
+    margin: auto;
+}
+
+.container-small {
+    max-width: 37.5rem;
+    margin: auto;
+}
+
+/*-----------------
+    HEADER 
+------------------*/
+header{
+    text-align: center;
+    padding: 2.5rem 0;
+}
+
+header h1{
+    margin-bottom: 1.5625rem;
+    color: #343230;
+}
+
+/*-----------------
+    MAIN 
+------------------*/
+main #card-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main #card-content img{
+    width: 100%;
+    display: block;
+}
+
+main #card-content .card-content-item{
+    background-color: white;
+    width: calc(100% / 3 - 20px);
+    margin-bottom: 2.1875rem;
+    list-style: none;
+    text-align: center;
+}
+
+main .card-name,
+main .card-role{
+    
+}
+
+main .card-name{
+    padding-top: .9375rem;
+}
+
+.card-role{
+    display: inline-block;
+    padding-bottom: .9375rem;
+}

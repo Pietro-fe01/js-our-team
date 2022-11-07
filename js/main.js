@@ -1,6 +1,6 @@
 "use strict";
 
-const unorderedList = document.getElementById("un-list");
+const cardContent = document.getElementById("card-content");
 
 /* 
 Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membri del team.
@@ -12,39 +12,39 @@ Creare l’array di oggetti con le informazioni fornite.
 
 const teamMembers = [
     {
+        foto: 'wayne-barnett-founder-ceo.jpg'   ,
         nome: 'Wayne Barnett',
         ruolo: 'Founder & CEO',
-        foto: 'wayne-barnett-founder-ceo.jpg'
     },
 
     {
+        foto: 'angela-caroll-chief-editor.jpg',
         nome: 'Angela Caroll',
         ruolo: 'Chief Editor',
-        foto: 'angela-caroll-chief-editor.jpg'
     },
 
     {
+        foto: 'walter-gordon-office-manager.jpg',
         nome: 'Walter Gordon',
         ruolo: 'Office Manager',
-        foto: 'walter-gordon-office-manager.jpg'
     },
 
     {
+        foto: 'angela-lopez-social-media-manager.jpg',
         nome: 'Angela Lopez',
         ruolo: 'Social Media Manager',
-        foto: 'angela-lopez-social-media-manager.jpg'
     },
 
     {
+        foto: 'scott-estrada-developer.jpg',
         nome: 'Scott Estrada',
         ruolo: 'Developer',
-        foto: 'scott-estrada-developer.jpg'
     },
 
     {
+        foto: 'barbara-ramos-graphic-designer.jpg',
         nome: 'Barbara Ramos',
         ruolo: 'Graphic Designer',
-        foto: 'barbara-ramos-graphic-designer.jpg'
     },
 ];
 
@@ -60,18 +60,25 @@ BONUS 1:
 Trasformare la stringa foto in una immagine effettiva*/
 
 for(let i = 0; i < teamMembers.length; i++){
-    const listItem = document.createElement("li");
+    const cardContentItem = document.createElement("div");
+    cardContentItem.classList.add("card-content-item")
     for(let key in teamMembers[i]){
         if(key === 'foto'){
             const createImg = document.createElement("img");
             createImg.src = `img/${teamMembers[i][key]}`;
-            listItem.append(createImg);
+            cardContentItem.append(createImg);
+        } else if (key === 'nome'){
+            const titleTag = document.createElement("h3");
+            titleTag.classList.add("card-name")
+            titleTag.innerHTML += teamMembers[i][key];
+            cardContentItem.append(titleTag);
         } else {
-            listItem.innerHTML += teamMembers[i][key] + " - ";
+            const smallTag = document.createElement("small");
+            smallTag.classList.add("card-role")
+            smallTag.innerHTML += teamMembers[i][key];
+            cardContentItem.append(smallTag);
         }
-
-        unorderedList.append(listItem);
-        console.log(teamMembers[i][key]);
+        cardContent.append(cardContentItem);
     }
 };
 
