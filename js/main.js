@@ -1,5 +1,7 @@
 "use strict";
 
+const unorderedList = document.getElementById("un-list");
+
 /* 
 Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membri del team.
 Ogni membro è caratterizzato dalle seguenti informazioni: nome, ruolo e foto.
@@ -49,21 +51,30 @@ const teamMembers = [
 console.log(teamMembers);
 
 /* MILESTONE 1:
-Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto */
-for(let i = 0; i < teamMembers.length; i++){
-    console.log(`Oggetto numero ${i + 1}:`);
-    for(let key in teamMembers[i]){
-        console.log(teamMembers[i][key]);
-    }
-};
+Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto 
 
-/*
 MILESTONE 2:
 Stampare le stesse informazioni su DOM sottoforma di stringhe
 
 BONUS 1:
-Trasformare la stringa foto in una immagine effettiva
+Trasformare la stringa foto in una immagine effettiva*/
 
-BONUS 2:
+for(let i = 0; i < teamMembers.length; i++){
+    const listItem = document.createElement("li");
+    for(let key in teamMembers[i]){
+        if(key === 'foto'){
+            const createImg = document.createElement("img");
+            createImg.src = `img/${teamMembers[i][key]}`;
+            listItem.append(createImg);
+        } else {
+            listItem.innerHTML += teamMembers[i][key] + " - ";
+        }
+
+        unorderedList.append(listItem);
+        console.log(teamMembers[i][key]);
+    }
+};
+
+/*BONUS 2:
 Organizzare i singoli membri in card/schede
 */
