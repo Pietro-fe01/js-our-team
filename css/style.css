@@ -58,7 +58,8 @@ main #card-content .card-content-item{
     margin-bottom: 2.1875rem;
     list-style: none;
     text-align: center;
-    box-shadow: 3px 3px red, -1em 0 .4em black;
+    box-shadow: 2px 2px red,-3px -2px 33px -2px black;
+    cursor: zoom-in;
 }
 
 main .card-name{
